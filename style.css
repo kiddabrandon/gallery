@@ -1,0 +1,188 @@
+.grid-gallery{
+   --_gap: .5rem;
+   --_offset: 10%;
+   --_offset-1: calc(var(--_offset) * 1);
+   --_offset-2: calc(var(--_offset) * 2);
+   --_offset-3: calc(var(--_offset) * 3);
+   --_offset-7: calc(var(--_offset) * 7);
+   --_offset-8: calc(var(--_offset) * 8);
+   --_offset-9: calc(var(--_offset) * 9);
+   
+   width: calc(100% - 4rem);
+   max-width: 800px;
+   margin: 2rem auto;
+   color: white;
+   font-family: system-ui;
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 0 var(--_gap);
+ }
+ .grid-gallery > div{
+   aspect-ratio: 1;
+   transition: 500ms ease-in-out;
+   clip-path: polygon(var(--_clip-path));
+ }
+ .grid-gallery img{
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   display: block;
+ }
+ .grid-gallery > div:nth-child(n+4){
+  margin-top: calc(var(--_offset-3) * -1 + var(--_gap));
+ }
+ .grid-gallery > div:nth-child(1){
+   --_clip-path: 0 0, 100% 0, 100% var(--_offset-9), 0 100%;
+ }
+ .grid-gallery > div:nth-child(2){
+    --_clip-path:0 0, 100% 0, 100% var(--_offset-8), 0 var(--_offset-9);
+ }
+ .grid-gallery > div:nth-child(3){
+    --_clip-path:0 0, 100% 0, 100% var(--_offset-7), 0 var(--_offset-8);
+ }
+ .grid-gallery > div:nth-child(4){
+    --_clip-path:0 var(--_offset-3), 100% var(--_offset-2), 100% var(--_offset-8), 0 var(--_offset-7);
+ }
+ .grid-gallery > div:nth-child(5){
+   --_clip-path:0 var(--_offset-2), 100% var(--_offset-1), 100% var(--_offset-9), 0 var(--_offset-8);
+ }
+ .grid-gallery > div:nth-child(6){
+    --_clip-path:0 var(--_offset-1), 100% 0%, 100% 100%, 0 var(--_offset-9);
+ }
+ .grid-gallery > div:nth-child(7){
+    --_clip-path:0 0%, 100% var(--_offset-1), 100% 100%, 0 100%;
+ }
+ .grid-gallery > div:nth-child(8){
+    --_clip-path:0 var(--_offset-1), 100% var(--_offset-2), 100% 100%, 0 100%;
+ }
+ .grid-gallery > div:nth-child(9){
+    --_clip-path:0 var(--_offset-2), 100% var(--_offset-3), 100% 100%, 0 100%;
+ }
+ 
+ .grid-gallery:has(:hover) > div:not(:hover){
+   filter: grayscale(1) blur(3px);
+   opacity: .5;
+ }
+ 
+ 
+ /* none of this CSS is relevant to the wave animation */
+ :root{
+   --clr-bg: #222;
+   --clr-txt: #F5F5F5;
+   --clr-primary: #F5F5F5;
+   --clr-secondary: #38BDF8;
+   --clr-button: #0369A1;
+ }
+ html{
+   background-color: var(--clr-bg);
+   font-family: Inter;
+   color: var(--clr-txt);
+ }
+ 
+ body{
+   min-height: 100svh;
+   color: var(--clr-primary);
+   padding: 1rem;
+   background-image: radial-gradient(circle at center center, rgb(71, 71, 71),rgb(8, 8, 8));
+ }
+ 
+ h1{
+   font-size: 2.5rem;
+   font-weight: 800;
+   margin-block-end: 1rem;
+   text-align: center;
+ 
+ }
+ .lead {
+   font-size: 1.25rem;
+   font-weight: 600;
+   text-align: center;
+ 
+ }
+ code{
+   color: var(--clr-secondary);
+   border: 1px solid rgba(from var(--clr-secondary) r g b / .25);
+   padding-inline: .25rem;
+   border-radius: 5px;
+ }
+ .download {
+   padding: 1.25rem;
+   border: 0;
+   border-radius: 3px;
+   background-color: #4F46E5;
+   color: #fff;
+   cursor: pointer;
+   text-decoration: none;
+}
+
+.download:hover {
+   color: #fff
+}
+
+#carbonads {
+   display: block;
+   overflow: hidden;
+   max-width: 728px;
+   position: relative;
+   font-size: 22px;
+   box-sizing: content-box
+}
+
+#carbonads>span {
+   display: block
+}
+
+#carbonads a {
+   color: #4F46E5;
+   text-decoration: none
+}
+
+#carbonads a:hover {
+   color: #4F46E5
+}
+
+.carbon-wrap {
+   display: flex;
+   align-items: center
+}
+
+.carbon-img {
+   display: block;
+   margin: 0;
+   line-height: 1
+}
+
+.carbon-img img {
+   display: block;
+   height: 90px;
+   width: auto
+}
+
+.carbon-text {
+   display: block;
+   padding: 0 1em;
+   line-height: 1.35;
+   text-align: left
+}
+
+.carbon-poweredby {
+   display: block;
+   position: absolute;
+   bottom: 0;
+   right: 0;
+   padding: 6px 10px;
+   text-align: center;
+   text-transform: uppercase;
+   letter-spacing: .5px;
+   font-weight: 600;
+   font-size: 8px;
+   border-top-left-radius: 4px;
+   line-height: 1;
+   color: #aaa !important
+}
+
+@media only screen and (min-width:320px) and (max-width:759px) {
+   .carbon-text {
+       font-size: 14px
+   }
+} 
